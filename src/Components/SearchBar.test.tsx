@@ -1,24 +1,8 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-import { fireEvent, render, RenderOptions } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ReactElement } from 'react';
-import { SearchContext } from '../Contexts/DefaultSearchContext';
+import { customRender } from '../__test__/TestUtils';
 import { SearchBar } from './SearchBar';
-
-const Providers: React.FC = ({ children }) => {
-  return (
-    <SearchContext.Provider
-      value={{ defaultValue: 'this is not the usual default value...' }}
-    >
-      {children}
-    </SearchContext.Provider>
-  );
-};
-
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: Providers, ...options });
 
 describe('SearchBar', () => {
   it('Displays the default value from context when search value does not exist', () => {
