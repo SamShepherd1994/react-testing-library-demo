@@ -23,6 +23,12 @@ const setupFetch = (
 
 describe('useApi', () => {
   describe('loadItems', () => {
+    it('sets defaults correctly', () => {
+      const { result } = renderHook(() => useApi(''));
+      expect(result.current.error).toBeUndefined();
+      expect(result.current.items).toEqual([]);
+    });
+
     it('calls fetch with the correct url', async () => {
       const url = 'test/url';
       const fetchSpy = setupFetch();

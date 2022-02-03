@@ -1,10 +1,15 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import { fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { customRender } from '../__test__/TestUtils';
 import { SearchBar } from './SearchBar';
 
 describe('SearchBar', () => {
+  it('is in the document', () => {
+    const { queryByTestId } = customRender(<SearchBar onSearch={() => {}} />);
+    const Input = queryByTestId('search-input') as HTMLInputElement;
+    expect(Input).toBeInTheDocument();
+  });
+
   it('Displays the default value from context when search value does not exist', () => {
     const { queryByTestId } = customRender(<SearchBar onSearch={() => {}} />);
     const Input = queryByTestId('search-input') as HTMLInputElement;
@@ -39,9 +44,8 @@ describe('SearchBar', () => {
     if (!Button) {
       throw new Error('Could not find Search Button.');
     }
-
     fireEvent.change(Input, { target: { value: 'search change' } });
-    userEvent.click(Button);
+    fireEvent.click(Button);
 
     expect(callbackSpy).toHaveBeenCalledWith('search change');
   });
