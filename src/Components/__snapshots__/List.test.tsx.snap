@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Renders No items found when list is empty 1`] = `
+<DocumentFragment>
+  <div>
+    No Items Found.
+  </div>
+</DocumentFragment>
+`;
+
+exports[`List renders correctly with multiple items 1`] = `
+<DocumentFragment>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          name
+        </td>
+      </tr>
+      <tr>
+        <td>
+          name2
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`List renders correctly with single item 1`] = `
+<DocumentFragment>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          name
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

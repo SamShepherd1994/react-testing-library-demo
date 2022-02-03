@@ -45,4 +45,20 @@ describe('SearchBar', () => {
 
     expect(callbackSpy).toHaveBeenCalledWith('search change');
   });
+
+  it('matches snapshot before and after user input', () => {
+    const { asFragment, queryByTestId } = customRender(
+      <SearchBar onSearch={() => {}} />
+    );
+    expect(asFragment()).toMatchSnapshot();
+
+    const Input = queryByTestId('search-input') as HTMLInputElement;
+    if (!Input) {
+      throw new Error('Could not find Search Input.');
+    }
+
+    fireEvent.change(Input, { target: { value: 'updated' } });
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

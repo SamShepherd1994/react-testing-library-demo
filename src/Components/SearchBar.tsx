@@ -15,7 +15,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     <div className='flex flex-row'>
       <input
         data-testid='search-input'
-        className='border-2 p-2'
+        className={`border-2 p-2 ${
+          search.length === 0 ? 'border-4 border-red-500' : ''
+        }`}
         value={search ? search : defaultValue}
         onChange={(e) => setSearch(e.target.value)}
       />

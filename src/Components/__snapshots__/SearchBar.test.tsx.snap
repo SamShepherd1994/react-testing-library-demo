@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar matches snapshot before and after user input 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-row"
+  >
+    <input
+      class="border-2 p-2 border-4 border-red-500"
+      data-testid="search-input"
+      value="this is not the usual default value..."
+    />
+    <div
+      class="mr-1"
+    />
+    <button
+      class="bg-green-400 rounded-md p-2"
+      data-testid="search-button"
+    >
+      Search
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SearchBar matches snapshot before and after user input 2`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-row"
+  >
+    <input
+      class="border-2 p-2 "
+      data-testid="search-input"
+      value="updated"
+    />
+    <div
+      class="mr-1"
+    />
+    <button
+      class="bg-green-400 rounded-md p-2"
+      data-testid="search-button"
+    >
+      Search
+    </button>
+  </div>
+</DocumentFragment>
+`;
