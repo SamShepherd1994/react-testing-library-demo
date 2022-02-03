@@ -34,7 +34,7 @@ export const renderHookInAct = async <T, R>(
   hook: (props: T) => R,
   options?: RenderHookOptions<T>
 ) => {
-  let result: RenderHookResult<T, R, Renderer<T>>;
+  let result: RenderHookResult<T, R, Renderer<T>> | undefined;
   await act(
     async () =>
       await new Promise((resolve) => {
@@ -44,5 +44,5 @@ export const renderHookInAct = async <T, R>(
         setTimeout(resolve, 10);
       })
   );
-  return result!;
+  return result;
 };
